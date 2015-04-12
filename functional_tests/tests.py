@@ -59,12 +59,12 @@ class NewVisitorTest(LiveServerTestCase):
         
         ## We use a new browser session to make sure that no information
         ## of Edith's is coming thought from cookies etc #
-        self.broswer.quit()
-        self.broswer = webdriver.Firefox()
+        self.browser.quit()
+        self.browser = webdriver.Firefox()
         
         # Francis visits teh home page.  There is no sign of edith's 
         # list
-        self.broswer.get(self.live_server_url)
+        self.browser.get(self.live_server_url)
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Buy peacock feathers', page_text)
         self.assertNotIn('make a fly', page_text)
